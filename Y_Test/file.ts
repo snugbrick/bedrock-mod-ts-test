@@ -1,0 +1,1 @@
+import *as file_server from '@minecraft/server';
