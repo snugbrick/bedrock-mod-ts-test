@@ -1,12 +1,12 @@
-import { DimensionLocation,Entity, World, world, Block } from "@minecraft/server";
+import { DimensionLocation,Entity, World, world, Block, Dimension } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import {  } from "@minecraft/common";
 import {} from "./Y_Test/define";
 import {} from "./Y_Test/file";
 
-function log(log: String) {
-  Array["from"](world["getPlayers"]())["forEach"]((player) => {
-    player["tell"](log);
+function log(log: string) {
+  Array.from(world.getPlayers()).forEach((player) => {
+    player.sendMessage(log);
   });
 }
 function spawnPoisonedVillager(location: DimensionLocation) {
@@ -26,3 +26,6 @@ class test2 {
   worldEntity = world.getEntity("zombie");
 }
 log("重载成功");
+
+let players =world.getPlayers?.toString
+//line:5587
