@@ -1,42 +1,12 @@
-import {
-  DimensionLocation,
-  world,
-  system
-} from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import {} from "@minecraft/common";
-import {} from "./Y_Test/define";
-import {} from "./Y_Test/file";
+import * as _minecraft_server from "@minecraft/server";
 
-function log(log: string) {
-  Array.from(world.getPlayers()).forEach((player) => {
-    player.sendMessage(log);
-  });
-}
-function spawnPoisonedVillager(location: DimensionLocation) {
-  const villagerType = "minecraft:villager_v2<minecraft:ageable_grow_up>";
-  const villager = location.dimension.spawnEntity(villagerType, location);
-  const duration = 20;
-  villager.addEffect(MinecraftEffectTypes.Poison, duration, { amplifier: 1 });
-}
-export class test {
-  worldEntity = world.getEntity("minecraft:player");
-  //line:1895
-  public getEntity() {
-    return this.worldEntity?.getEntitiesFromViewDirection;
+_minecraft_server.system;
+
+function killPlayers(event: _minecraft_server.PlayerJoinAfterEvent) {
+  const playerName = event.playerName.toString();
+  if (_minecraft_server.system.currentTick % 60 === 1) {
+    _minecraft_server.world.sendMessage(`welcome ${playerName}`);
   }
 }
-class test2 {
-  worldEntity = world.getEntity("zombie");
-}
-log("重载成功");
 
-let players = world.getPlayers?.toString;
-//line:5587
-
-world.beforeEvents.itemUse.subscribe((event) => {
-  let myArray: string[] = ["aaa", "bbb", "ccc"];
-  return event.itemStack.setLore(myArray);
-});
-
-//定制组件 https://learn.microsoft.com/en-us/minecraft/creator/documents/customcomponents?view=minecraft-bedrock-stable
+_minecraft_server.world.afterEvents.playerJoin.subscribe(killPlayers);
