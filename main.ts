@@ -1,6 +1,10 @@
-import { DimensionLocation,Entity, World, world, Block, Dimension } from "@minecraft/server";
+import {
+  DimensionLocation,
+  world,
+  system
+} from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import {  } from "@minecraft/common";
+import {} from "@minecraft/common";
 import {} from "./Y_Test/define";
 import {} from "./Y_Test/file";
 
@@ -27,5 +31,12 @@ class test2 {
 }
 log("重载成功");
 
-let players =world.getPlayers?.toString
+let players = world.getPlayers?.toString;
 //line:5587
+
+world.beforeEvents.itemUse.subscribe((event) => {
+  let myArray: string[] = ["aaa", "bbb", "ccc"];
+  return event.itemStack.setLore(myArray);
+});
+
+//定制组件 https://learn.microsoft.com/en-us/minecraft/creator/documents/customcomponents?view=minecraft-bedrock-stable
