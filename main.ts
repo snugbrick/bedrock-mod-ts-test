@@ -1,12 +1,10 @@
-import * as _minecraft_server from "@minecraft/server";
+import { world, system, PlayerJoinAfterEvent } from "@minecraft/server";
 
-_minecraft_server.system;
-
-function killPlayers(event: _minecraft_server.PlayerJoinAfterEvent) {
+function killPlayers(event: PlayerJoinAfterEvent) {
   const playerName = event.playerName.toString();
-  if (_minecraft_server.system.currentTick % 60 === 1) {
-    _minecraft_server.world.sendMessage(`welcome ${playerName}`);
+  if (system.currentTick % 60 === 1) {
+    world.sendMessage(`welcome ${playerName}`);
   }
 }
 
-_minecraft_server.world.afterEvents.playerJoin.subscribe(killPlayers);
+world.afterEvents.playerJoin.subscribe(killPlayers);
