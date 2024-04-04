@@ -22,7 +22,9 @@ function log(log: string) {
 class pointLocation {
   private firLocation: _minecraft.Vector3;
   private secLocation: _minecraft.Vector3;
-
+  /**
+   * setFirLocation & setSecLocation
+   */
   public setFirLocation(vector) {
     this.firLocation = vector;
     this.secLocation.y -= 2;
