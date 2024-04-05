@@ -6,7 +6,7 @@ template <> void print<char>(char a);
 template <typename T, typename U> void printWhat(T az, U b);
 template void print(int a);
 
-int main() {
+auto main() -> int {
   int a = 11;
   print(a);
   char name = 'a';
@@ -23,12 +23,13 @@ int main() {
 template <typename T> void print(T a) { cout << a << endl; }
 template <> void print<char>(char a) {
   cout << a << endl;
-  cout << "看到我说明我是函数特化" << endl;
+  cout << "看到我说明我优先级高" << endl;
 }
 template <typename T, typename U> void printWhat(T az, U b) {
   decltype(az + b) azPLASb = az + b; // double
   cout << typeid(azPLASb).name() << endl;
-  
-  decltype((az + b)) azAND; // double &
-  cout << typeid(azAND).name() << endl;
+
+  typedef decltype((az + b)) azAND; // double &
+  azAND aaa;
+  cout << typeid(aaa).name() << endl;
 }

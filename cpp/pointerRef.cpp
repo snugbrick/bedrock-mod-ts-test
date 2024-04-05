@@ -4,6 +4,7 @@ using namespace std;
 char *cutString(const char *str, int len);
 void printEnd(int a);
 void (*ps)(int a); // 函数指针
+void tryagain(char &a, int b);
 
 int main() {
   cout << "main thread" << endl;
@@ -14,6 +15,13 @@ int main() {
 
   ps = printEnd;
   (*ps)(114514);
+
+  char namespacea = 'a';
+  int a = 1;
+  tryagain(namespacea, a);
+  cout << namespacea << endl;
+
+  return 0;
 }
 char *cutString(const char *str, int len) {
   if (len < 0) {
@@ -28,4 +36,8 @@ char *cutString(const char *str, int len) {
 }
 void printEnd(int a) {
   cout << "here is End , every thing death!" << a << endl;
+}
+void tryagain(char &a, int b) {
+  cout << typeid(a).name() << endl;
+  a = 'b';
 }
