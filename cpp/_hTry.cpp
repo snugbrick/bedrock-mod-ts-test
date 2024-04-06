@@ -2,6 +2,11 @@
 #include <iostream>
 using namespace std;
 
+namespace newSpace {
+int main() { return 0; }
+void print() {}
+} // namespace newSpace
+
 int main() {
   cout << "this is a human" << endl;
   human *p;
