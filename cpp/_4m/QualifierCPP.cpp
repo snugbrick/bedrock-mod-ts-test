@@ -3,8 +3,8 @@ using namespace std;
 
 extern "C++" const int aaa = 1111; // 链接性为外部 以C++协议读取
 const int aaaa = 1111;             // 链接性为内部
-
-template <typename T> static void print(T a);
+// 链接性为内部
+template <typename T> static auto print(T a, T b) -> decltype(a + b);
 static void print(int a); // 链接性为内部
 
 struct test {
@@ -31,6 +31,7 @@ auto main() -> int {
   p1->slag = 114514;
   cout << &(p1->slag) << endl;
   pd1 = new (buffer1) newTest; // 使用new在buffer1中创建int
+                               // buffer1是静态地址,不需要delete
   cout << &pd1 << endl;        // 0x61fdf8
   // pd1->slag = 1919810;
   // cout << &(pd1->slag) << endl;
