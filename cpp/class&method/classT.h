@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #ifndef CLASS_LOANG
 #define CLASS_LOANG 10
@@ -8,7 +7,9 @@ using namespace std;
 
 class FirTry {
 private:
-  int _money; // private by defalt
+  enum class aYear : short { mon = 12, day = 30 };
+  aYear newY = aYear::mon;
+  int _money = int(newY); // private by defalt
   int check(int much) {
     if (much < 0) {
       cout << "y u much is a negative?" << endl;
@@ -18,10 +19,17 @@ private:
   }
 
 public:
-  FirTry(int money) { _money = money; }; // auto inline
+  FirTry(int money) {
+    cout << _money << "here is constructor" << endl;
+    _money = money;
+  }; // auto inline
   ~FirTry() { std::cout << "bye" << std::endl; }
   void add(int much);
   void print() { cout << _money << endl; };
+  FirTry operator&(FirTry &a) const {
+    a._money += this->_money;
+    return a._money;
+  }
+  const FirTry &maximun(const FirTry &ft2) const;
 
-  const FirTry& maximun(const FirTry &ft2) const;
 };

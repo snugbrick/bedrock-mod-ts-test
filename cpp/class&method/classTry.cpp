@@ -13,6 +13,12 @@ int main() {
 
     FirTry newFir = fir.maximun(fir2);
     newFir.print();
+
+    cout << "========================================" << endl;
+    FirTry f1(114514);
+    FirTry f2(1919810);
+    FirTry f3 = f1 & f2;
+    f3.print();
   }
   return 0;
 }
