@@ -1,4 +1,4 @@
-#include "_h/newTry.h"
+#include "../_h/newTry.h"
 #include <iostream>
 using namespace std;
 

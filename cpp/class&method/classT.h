@@ -1,6 +1,7 @@
 #include <iostream>
+#include <ostream>
 #ifndef CLASS_LOANG
-#define CLASS_LOANG 10
+#define CLASS_LOANG
 #endif
 
 using namespace std;
@@ -30,6 +31,6 @@ public:
     a._money += this->_money;
     return a._money;
   }
+  friend ostream &operator<<(ostream &os, const FirTry &ft);
   const FirTry &maximun(const FirTry &ft2) const;
-
 };

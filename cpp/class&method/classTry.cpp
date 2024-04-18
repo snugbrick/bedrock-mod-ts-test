@@ -1,5 +1,4 @@
 #include "classT.h"
-#include <iostream>
 
 using namespace std;
 
@@ -18,7 +17,8 @@ int main() {
     FirTry f1(114514);
     FirTry f2(1919810);
     FirTry f3 = f1 & f2;
-    f3.print();
+
+    cout << (f1 & f2) << "hi:" << f3;
   }
   return 0;
 }
@@ -31,4 +31,8 @@ const FirTry &FirTry::maximun(const FirTry &ft2) const {
     return ft2;
   else
     return *this;
+}
+ostream &operator<<(ostream &os, const FirTry &ft) {
+  os << "money in ft:" << ft._money << endl;
+  return os;
 }
