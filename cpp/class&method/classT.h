@@ -20,7 +20,7 @@ private:
   }
 
 public:
-  FirTry(int money) {
+  explicit FirTry(int money) {
     cout << _money << "here is constructor" << endl;
     _money = money;
   }; // auto inline
@@ -29,7 +29,7 @@ public:
   void print() { cout << _money << endl; };
   FirTry operator&(FirTry &a) const {
     a._money += this->_money;
-    return a._money;
+    return a;
   }
   friend ostream &operator<<(ostream &os, const FirTry &ft);
   const FirTry &maximun(const FirTry &ft2) const;

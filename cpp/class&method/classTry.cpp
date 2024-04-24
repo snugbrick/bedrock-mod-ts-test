@@ -1,4 +1,4 @@
-#include "classT.h"
+#include "classT"
 
 using namespace std;
 
@@ -19,6 +19,10 @@ int main() {
     FirTry f3 = f1 & f2;
 
     cout << (f1 & f2) << "hi:" << f3;
+
+    cout << "===========================================" << endl;
+    FirTry ftT(11.45);//自动类型转换
+    cout << ftT<<endl;;
   }
   return 0;
 }
@@ -33,6 +37,9 @@ const FirTry &FirTry::maximun(const FirTry &ft2) const {
     return *this;
 }
 ostream &operator<<(ostream &os, const FirTry &ft) {
-  os << "money in ft:" << ft._money << endl;
+  os << "money in ft:" << ft._money;
   return os;
 }
+//548398
+//549079
+//539488
