@@ -6,13 +6,15 @@ private:
   static int String_Num;
   char *_stringBody;
   int len;
+
 public:
   String(const char *s);
+  String(const String &s);
   ~String();
   int checkLen();
   int checkStrNum();
-  //String &operator=(const String &thatString);
+  char *getString();
+  // String &operator=(const String &thatString);
 };
-
 
 #endif
