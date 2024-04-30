@@ -1,25 +1,26 @@
 #include "String.h"
 #include <cstring>
 #include <iostream>
+#include <string.h>
 
 using namespace std;
-int main() {
+auto main() -> decltype(114 + 514) {
   {
-    String newStr("hi im john");
+    String newStr("use newStr constructor");
     cout << newStr.checkStrNum() << endl;
 
-    String newStr2("hi im john2");
+    String newStr2("use newStr2 constructor");
     cout << newStr2.checkStrNum() << endl;
 
-    String newStr3("hi im john3");
+    String newStr3("use newStr3 constructor");
     cout << newStr3.checkStrNum() << endl;
 
-    String newStr4("hi im john4");
+    String newStr4("use newStr4 constructor"); // c9r :)
     cout << newStr4.checkStrNum() << endl;
     for (int i = 0; i < newStr4.checkLen(); i++) {
       cout << *(newStr4.getString() + i);
     }
-    cout << endl << newStr4.checkLen() << endl;
+    cout << endl;
   }
   {
     String newStr5("hi im john5");
@@ -27,9 +28,6 @@ int main() {
 
     String ne2Str6 = newStr5;
     cout << ne2Str6.checkStrNum() << endl;
-
-    String ne2Str7 = newStr5;
-    cout << ne2Str7.checkStrNum() << endl;
   }
   cout << "here is end" << endl;
   return 0;
@@ -37,7 +35,7 @@ int main() {
 
 int String::String_Num = 0;
 
-String::String(const char *s) {
+String::String(const char *s) : lenPlus(strlen(s) + 1) { // member init list
   len = strlen(s);
   _stringBody = new char[len + 1];
   strcpy(_stringBody, s);
@@ -45,7 +43,7 @@ String::String(const char *s) {
   cout << "Im String constructor" << endl;
 }
 
-String::String(const String &s) {
+String::String(const String &s) : lenPlus((s.len) + 1) {
   len = strlen(s._stringBody);
   _stringBody = new char[len + 1];
   strcpy(_stringBody, s._stringBody);
