@@ -6,7 +6,5 @@ cpp/class&method/classTry.exe
 cpp/class&method/classTry.exe
 cpp/class&method/classTry.exe
 
-cppProject/.vscode
-cppProject/output
-cppProject2/.vscode
-cppProject2/output
+cppProject
+cppProject2
