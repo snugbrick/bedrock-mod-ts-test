@@ -5,7 +5,7 @@ import {
 } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import {} from "@minecraft/common";
-import {} from "../main";
+import {} from "./main";
 import {} from "./file";
 
 function log(log: string) {

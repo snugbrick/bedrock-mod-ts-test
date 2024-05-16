@@ -1,0 +1,13 @@
+{
+  "name": "jsongenerator",
+  "version": "1.0.0",
+  "description": "A ts repo for Json Generate",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "npx tsc",
+    "begin": "node index.js",
+    "indexc": "npx tsc index.ts"
+  },
+  "author": "MiracleUR",
+  "license": "ISC"
+}
