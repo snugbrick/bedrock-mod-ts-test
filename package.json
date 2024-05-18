@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@minecraft/common": "^1.2.0",
-    "@minecraft/server": "^1.9.0",
-    "@minecraft/vanilla-data": "^1.20.70"
-  }
-}
