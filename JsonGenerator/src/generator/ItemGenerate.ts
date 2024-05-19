@@ -20,7 +20,7 @@ export class jsonContent {
   };
 }
 
-export function createJsonContent(
+export function createItemJsonContent(
   version: string,
   //description
   identifier: string,
@@ -49,6 +49,12 @@ export function createJsonContent(
     },
   };
   //删除多余行 （感觉好像dom）:/
+  deleteExtraRows(itemJson);
+
+  return itemJson;
+}
+
+function deleteExtraRows(itemJson: jsonContent) {
   for (let key in itemJson["minecraft:item"].components) {
     let typedKey: keyof ItemComponents = key as keyof ItemComponents;
     if (
@@ -58,5 +64,4 @@ export function createJsonContent(
     )
       delete itemJson["minecraft:item"].components[typedKey];
   }
-  return itemJson;
 }

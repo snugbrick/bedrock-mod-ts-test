@@ -2,14 +2,14 @@
 import * as index from "../src/JsonTasks";
 import { jsonTasksHandler } from "../src/JsonTasks";
 import { jsonType } from "../src/enums/JsonTypeEnum";
-import { createJsonContent } from "../src/generator/ItemGenerate";
+import { createItemJsonContent } from "../src/generator/ItemGenerate";
 
 function aTest() {
   let aatry: jsonTasksHandler = new jsonTasksHandler();
   aatry.createJsonTasks(
     jsonType.Entity,
     "zombie",
-    createJsonContent("1.0.0", "MiracleUR", "nature")
+    createItemJsonContent("1.20.6", "MiracleUR", "nature")
   );
   aatry.createIdentifier("MiracleUR");
 
@@ -17,7 +17,7 @@ function aTest() {
   a2atry.createJsonTasks(
     jsonType.Entity,
     "zombie2",
-    createJsonContent("1.0.0", "MiracleUR", "nature")
+    createItemJsonContent("1.20.6", "MiracleUR", "nature")
   );
   a2atry.createIdentifier("MiracleUR");
 
