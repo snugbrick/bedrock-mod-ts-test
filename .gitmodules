@@ -1,0 +1,3 @@
+[submodule "snugbrick"]
+	path = snugbrick
+	url = git@github.com:snugbrick/snugbrick.git
