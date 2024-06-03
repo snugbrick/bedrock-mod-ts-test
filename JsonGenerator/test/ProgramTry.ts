@@ -9,7 +9,7 @@ function aTest() {
   aatry.createJsonTasks(
     jsonType.Entity,
     "zombie",
-    createItemJsonContent("1.20.6", "MiracleUR", "nature")
+    createItemJsonContent("11.45.14", "MiracleUR", "nature", "/a")
   );
   aatry.createIdentifier("MiracleUR");
 
@@ -17,10 +17,10 @@ function aTest() {
   a2atry.createJsonTasks(
     jsonType.Entity,
     "zombie2",
-    createItemJsonContent("1.20.6", "MiracleUR", "nature")
+    createItemJsonContent("11.45.14", "MiracleUR", "nature", "/a")
   );
   a2atry.createIdentifier("MiracleUR");
-
+  
   index.register(aatry);
   index.register(a2atry);
   index.generate();

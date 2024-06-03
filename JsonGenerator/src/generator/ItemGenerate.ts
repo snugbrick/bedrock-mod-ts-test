@@ -1,3 +1,5 @@
+import { Key } from "node:readline";
+
 interface ItemDescription {
   identifier: string;
   category: string;
@@ -11,27 +13,27 @@ interface ItemComponents {
     texture: string;
   };
 }
-
-export class jsonContent {
+//出包王女 不道德工会
+export class itemJsonContent {
   format_version?: string;
   "minecraft:item": {
     description: ItemDescription;
     components: ItemComponents;
   };
 }
-
+//117965902
 export function createItemJsonContent(
   version: string,
   //description
   identifier: string,
   category: string,
   //components
+  icon: string,
   stacked_by_data?: boolean,
   foil?: boolean,
-  max_stack_size?: number,
-  icon?: string
-): jsonContent {
-  let itemJson: jsonContent = {
+  max_stack_size?: number
+): itemJsonContent {
+  let itemJson: itemJsonContent = {
     format_version: `${version}`,
     "minecraft:item": {
       description: {
@@ -54,14 +56,15 @@ export function createItemJsonContent(
   return itemJson;
 }
 
-function deleteExtraRows(itemJson: jsonContent) {
+function deleteExtraRows(itemJson: itemJsonContent) {
   for (let key in itemJson["minecraft:item"].components) {
     let typedKey: keyof ItemComponents = key as keyof ItemComponents;
     if (
       itemJson["minecraft:item"].components[typedKey] === null ||
       itemJson["minecraft:item"].components[typedKey] === false ||
       itemJson["minecraft:item"].components[typedKey] === 0
-    )
+    ) {
       delete itemJson["minecraft:item"].components[typedKey];
+    }
   }
 }

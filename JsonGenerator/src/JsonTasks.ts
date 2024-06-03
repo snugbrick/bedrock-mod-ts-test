@@ -1,7 +1,7 @@
 //JsonTasks.ts
 import * as fs from "node:fs";
 import { jsonType, checkType } from "./enums/JsonTypeEnum";
-import { jsonContent } from "./generator/ItemGenerate";
+import { itemJsonContent } from "./generator/ItemGenerate";
 
 const _jsonTasks: jsonTasks[] | undefined = [];
 
@@ -41,15 +41,15 @@ export function generate(): void {
     console.error("_jsonTasks is undefined or empty");
   }
 }
-//131 399297
+
 interface jsonTasks {
   type: jsonType | undefined;
   name: string | undefined;
   identifier: string | undefined;
   path: string | undefined;
-  content: jsonContent | undefined;
+  content: itemJsonContent | undefined;
 
-  createJsonTasks(type: jsonType, name: string, content: jsonContent): void;
+  createJsonTasks(type: jsonType, name: string, content: itemJsonContent): void;
   createIdentifier(identifier: string): void;
 }
 
@@ -58,7 +58,7 @@ export class jsonTasksHandler implements jsonTasks {
   name: string | undefined;
   identifier: string | undefined;
   path: string | undefined;
-  content: jsonContent | undefined;
+  content: itemJsonContent | undefined;
 
   constructor(path?: string) {
     if (path) this.path = path;
@@ -67,7 +67,7 @@ export class jsonTasksHandler implements jsonTasks {
   createJsonTasks(
     tasksType: jsonType,
     fileName: string,
-    content: jsonContent
+    content: itemJsonContent
   ): void {
     this.type = tasksType;
     this.name = fileName;

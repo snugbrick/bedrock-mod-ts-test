@@ -1,22 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createJsonContent = exports.jsonContent = void 0;
-var jsonContent = /** @class */ (function () {
-    function jsonContent() {
+exports.createItemJsonContent = exports.itemJsonContent = void 0;
+var itemJsonContent = /** @class */ (function () {
+    function itemJsonContent() {
     }
-    jsonContent.prototype.addDescription = function (json, identifier, category) {
-        json.identifier = identifier;
-        json.category = category;
-        return json;
-    };
-    return jsonContent;
+    return itemJsonContent;
 }());
-exports.jsonContent = jsonContent;
-function createJsonContent(version, 
+exports.itemJsonContent = itemJsonContent;
+//117965902
+function createItemJsonContent(version, 
 //description
 identifier, category, 
 //components
-stacked_by_data, foil, max_stack_size, icon) {
+icon, stacked_by_data, foil, max_stack_size) {
     var _a;
     var itemJson = {
         format_version: "".concat(version),
@@ -34,21 +30,19 @@ stacked_by_data, foil, max_stack_size, icon) {
                 },
             },
         },
-        addDescription: function (json, identifier, category) {
-            throw new Error("Function not implemented.");
-        },
     };
     //删除多余行 （感觉好像dom）:/
     deleteExtraRows(itemJson);
     return itemJson;
 }
-exports.createJsonContent = createJsonContent;
+exports.createItemJsonContent = createItemJsonContent;
 function deleteExtraRows(itemJson) {
     for (var key in itemJson["minecraft:item"].components) {
         var typedKey = key;
         if (itemJson["minecraft:item"].components[typedKey] === null ||
             itemJson["minecraft:item"].components[typedKey] === false ||
-            itemJson["minecraft:item"].components[typedKey] === 0)
+            itemJson["minecraft:item"].components[typedKey] === 0) {
             delete itemJson["minecraft:item"].components[typedKey];
+        }
     }
 }

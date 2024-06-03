@@ -1,5 +1,5 @@
 {
-    "format_version": "1.0.0",
+    "format_version": "11.45.14",
     "minecraft:item": {
         "description": {
             "identifier": "MiracleUR",
@@ -7,7 +7,7 @@
         },
         "components": {
             "minecraft:icon": {
-                "texture": "undefined"
+                "texture": "/a"
             }
         }
     }
